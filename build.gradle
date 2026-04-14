@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation("org.projectlombok:lombok:1.18.42")
+    implementation("org.seleniumhq.selenium:selenium-java:4.41.0")
+    implementation("io.github.bonigarcia:webdrivermanager:6.3.3")
+    testImplementation("io.rest-assured:rest-assured:6.0.0")
+    implementation("tools.jackson.core:jackson-databind:3.1.1")
+    compileOnly 'org.projectlombok:lombok:1.18.44'
+    annotationProcessor 'org.projectlombok:lombok:1.18.44'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat = "full"
+    }
+
+    systemProperty 'webdriver.chrome.driver', ' ' // если нужно
+}
+
+
+
+//какие виды dependencies бывают. найти еще, прочитать testImplementation,testRuntimeOnly и тд
+// если написано просто Implementation - значит то, что будет доступно во всем проекте, в блоках main и test.
+//JUnit почитать
