@@ -3,6 +3,7 @@ package ru.maxim;
 public class Main {
     static void main(String[] args) {
         Person person = new Person();
+        Person dev = new Person();
 //        person.setName("Anton");
 //        person.setId(7);
 //        person.setAge(21);
