@@ -29,4 +29,5 @@ public class ButtonsPage {
         WebElement webElement = webDriver.findElement(rightClickButtonLocator);
         new Actions(webDriver).contextClick(webElement).perform();
     }
+
 }
